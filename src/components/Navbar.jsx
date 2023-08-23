@@ -10,8 +10,8 @@ function ColorSchemesExample() {
           <Navbar.Brand href="#home">Planetary</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="#features">APOD</Nav.Link>
+            <Nav.Link href="#pricing">Planets</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
