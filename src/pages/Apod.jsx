@@ -1,20 +1,19 @@
 import { useLoaderData } from "react-router-dom";
-import dotenv from "dotenv";
+import { appLoader } from "../actions/appLoader";
 
 const Apod = () => {
   const data = useLoaderData();
+  console.log("data", data);
   return (
-    <>
-      <h1>APOD</h1>
-    </>
-  );
-};
+    <div className="apod">
+      <h1>Astronomy Picture of the Day</h1>
+      <p className="apod-title">{data.title}</p>
+      <img className="apod-image" src={data.url} alt={data.title} />
+      <p className="apod-info">{data.explanation}</p>
 
-export const apodLoader = async () => {
-  const res = await fetch(
-    `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      <button onClick={appLoader}>Load APOD</button>
+    </div>
   );
-  return await res.json();
 };
 
 export default Apod;

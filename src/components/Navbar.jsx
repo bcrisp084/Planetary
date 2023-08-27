@@ -7,10 +7,10 @@ function ColorSchemesExample() {
     <>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">Planetary</Navbar.Brand>
+          <Navbar.Brand href="/">Planetary</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">APOD</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/apod">APOD</Nav.Link>
             <Nav.Link href="#pricing">Planets</Nav.Link>
           </Nav>
         </Container>

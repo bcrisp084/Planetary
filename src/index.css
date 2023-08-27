@@ -51,3 +51,16 @@ body {
   font-weight: 700;
   text-align: center;
 }
+
+.footer {
+  background-color: #070724;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+.footer h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
