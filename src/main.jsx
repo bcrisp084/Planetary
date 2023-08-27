@@ -12,6 +12,7 @@ import MainLayout from "./layouts/MainLayout";
 import Apod from "./pages/Apod";
 import Home from "./pages/Home";
 import { appLoader } from "./actions/appLoader";
+import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="apod" loader={appLoader} element={<Apod />} />
       <Route path="/apod/:date" loader={appLoader} element={<Apod />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
