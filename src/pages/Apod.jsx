@@ -1,24 +1,34 @@
-import { Form, useLoaderData, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Form, useNavigate, useLocation } from "react-router-dom";
 import { appLoader } from "../actions/appLoader";
 
 const Apod = () => {
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-  console.log("date", date);
-  const data = useLoaderData();
-  console.log("data-here", data);
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const data = state?.data || {};
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    async function fetchDailyImage() {
+      const defaultImage = await appLoader({ date });
+      navigate(`/apod/${date}`, { state: { data: defaultImage } });
+    }
+    fetchDailyImage();
+  }, []);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const selectedDate = formData.get("date");
-    appLoader({ date: selectedDate });
 
-    console.log("selectedDate", selectedDate);
+    // Fetch the data and wait for the result
+    const newData = await appLoader({ date: selectedDate });
     setDate(selectedDate);
-    navigate(`/apod/?date=${selectedDate}`);
+
+    // Now you can navigate and set the new data
+    navigate(`/apod/${selectedDate}`, { state: { data: newData } });
   };
+
   return (
     <div className="main-apod">
       <Form method="post" action="/apod" onSubmit={handleSubmit}>
@@ -28,8 +38,8 @@ const Apod = () => {
           Submit
         </button>
       </Form>
-      {data && data.error && <p className="error">{data.error}</p>}
-      {data && data.title && (
+      {data.error && <p className="error">{data.error}</p>}
+      {data.title && (
         <div className="apod">
           <h1>Astronomy Picture of the Day</h1>
           <p className="apod-title">{data.title}</p>
