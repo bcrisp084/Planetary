@@ -18,6 +18,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<MainLayout />}>
       <Route index element={<Home />} />
       <Route path="apod" loader={appLoader} element={<Apod />} />
+      <Route path="/apod/:date" element={<Apod />} />
     </Route>
   )
 );
