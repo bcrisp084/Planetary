@@ -12,7 +12,7 @@ import MainLayout from "./layouts/MainLayout";
 import Apod from "./pages/Apod";
 import Home from "./pages/Home";
 import Planets from "./pages/Planets";
-import { appLoader } from "./actions/appLoader";
+import { appLoader, roverLoader } from "./actions/appLoader";
 import NotFound from "./pages/NotFound";
 import Rover from "./pages/Rover";
 
@@ -23,7 +23,7 @@ const router = createBrowserRouter(
       <Route path="apod" loader={appLoader} element={<Apod />} />
       <Route path="/apod/:date" loader={appLoader} element={<Apod />} />
       <Route path="/planets" element={<Planets />} />
-      <Route path="/rover" element={<Rover />} />
+      <Route path="/rover" loader={roverLoader} element={<Rover />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   )
