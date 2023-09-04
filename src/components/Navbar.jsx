@@ -11,7 +11,8 @@ function ColorSchemesExample() {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/apod">APOD</Nav.Link>
-            <Nav.Link href="#pricing">Planets</Nav.Link>
+            <Nav.Link href="/planets">Planets</Nav.Link>
+            <Nav.Link href="/rover">Rover-Images</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
