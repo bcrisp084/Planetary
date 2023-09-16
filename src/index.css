@@ -170,3 +170,19 @@ button:hover {
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding: 0.5rem;
+}
+
+.rover {
+  height: 100vh;
+}
+
+.rover h1 {
+  text-align: center;
+}

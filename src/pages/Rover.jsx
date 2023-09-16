@@ -17,8 +17,8 @@ const Rover = () => {
     : [];
 
   return (
-    <div>
-      <h1>Rover</h1>
+    <div className="rover">
+      <h1>Photos from the Mars rover</h1>
       <div className="carousel">
         <HoverCarousel images={images} height={400} width={400} />
       </div>
