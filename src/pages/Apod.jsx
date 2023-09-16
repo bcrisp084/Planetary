@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Form, useNavigate, useLocation } from "react-router-dom";
 import { appLoader } from "../actions/appLoader";
+import dayjs from "dayjs";
 
 const Apod = () => {
-  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
+  const [date, setDate] = useState(dayjs().format("YYYY-MM-DD"));
   const navigate = useNavigate();
   const { state } = useLocation();
   const data = state?.data || {};
@@ -14,7 +15,7 @@ const Apod = () => {
       navigate(`/apod/${date}`, { state: { data: defaultImage } });
     }
     fetchDailyImage();
-  }, []);
+  }, [date, navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
