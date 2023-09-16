@@ -3,7 +3,6 @@ import { planetLoader } from "../actions/appLoader";
 
 const Planets = () => {
   const [planets, setPlanets] = useState([]);
-  console.log(planetLoader);
   // useEffect(() => {
   //   async function getPlanets() {
   //     const planetData = await planetLoader();

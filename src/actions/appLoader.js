@@ -17,15 +17,17 @@ export const roverLoader = async () => {
 
 export const planetLoader = async () => {
   const apiKey = import.meta.env.VITE_REACT_APP_PLANETS_INFO_KEY;
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": `${apiKey}}`,
-      "X-RapidAPI-Host": "planets-info-by-newbapi.p.rapidapi.com",
-    },
-  };
-  const url = `https://planets-info-by-newbapi.p.rapidapi.com/api/v1/planets/`;
-  const res = await fetch(url, options);
-  console.log("res", res);
-  return await res.json();
+  const url = `https://planets-info-by-newbapi.p.rapidapi.com/api/v1/planets/?rapidapi-key=${apiKey}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
