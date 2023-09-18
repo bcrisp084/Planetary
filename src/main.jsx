@@ -15,6 +15,7 @@ import Planets from "./pages/Planets";
 import { appLoader, roverLoader, planetLoader } from "./actions/appLoader";
 import NotFound from "./pages/NotFound";
 import Rover from "./pages/Rover";
+import Particle from "./components/Particle";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <Particle />
     <RouterProvider router={router} />
   </React.StrictMode>
 );
